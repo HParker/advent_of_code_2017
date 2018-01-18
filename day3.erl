@@ -12,16 +12,12 @@ distance_to_corner(Input, Ring) ->
     RingMin = math_word(Ring - 1) + 2,
     RingMax = math_word(Ring) + 1,
     Index = index_of(Input, lists:seq(RingMin, RingMax)),
-    io:fwrite("Index: ~p Ring: ~p Range: ~p...~p ~n", [Index, Ring, RingMin, RingMax]),
     if
         (Index rem Ring =:= 0) and (Index rem (Ring * 2) =:= 0) ->
-            io:fwrite("I should get here for 13. ~n"),
             Ring;
         true ->
             Index rem Ring
     end.
-
-
 
 math_word(Num) when Num >= 1 ->
     8 * Num + math_word(Num - 1);
